@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include 'veri.php';
+include '../veri.php';
 if (isset($_POST)){
     $isim=$_POST["isim"];
     $temsilci=$_POST["temsilci"];

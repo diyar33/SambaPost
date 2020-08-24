@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include 'veri.php';
+include '../veri.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

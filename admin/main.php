@@ -4,7 +4,7 @@ ob_start();
 if (!$_SESSION["kullanici"]){
     header("Location:index");
 }
-require 'veri.php';
+require '../veri.php';
 require 'header.php';
 $gelenId="";
 $gelen_url="";
