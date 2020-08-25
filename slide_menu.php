@@ -13,7 +13,7 @@
             </div>
             <div class="profile_info">
                 <span>Hoşgeldiniz,</span>
-                <h2>John Doe</h2>
+                <h2><?php echo $data["isim"]?></h2>
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -58,7 +58,7 @@
                 <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
             </a>
 
-            <a data-toggle="tooltip" data-placement="top" title="Çıkış Yap" href="login.html">
+            <a data-toggle="tooltip" data-placement="top" title="Çıkış Yap" href="exit">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
             </a>
         </div>

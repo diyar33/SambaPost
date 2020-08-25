@@ -2,6 +2,9 @@
 session_start();
 ob_start();
 include '../veri.php';
+if (  $_SESSION["kullanici"]==true){
+    header('Location:main');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +31,57 @@ include '../veri.php';
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Giriş Paneli</p>
+
+
+            <?php
+            if(isset($_POST["adi"])){
+                $kullanici_adi=$_POST["adi"];
+                $kullanici_sifre=$_POST["sifre"];
+                $sql=mysqli_query($db,"select * from kullanici where kullanici_adi='$kullanici_adi' and kullanici_sifre='$kullanici_sifre'");
+                $data=mysqli_fetch_array($sql);
+                if (mysqli_num_rows($sql)==1){
+
+                    echo '                       <div class="col-12">
+            <div class="info-box bg-success">
+              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+             
+                <span class="info-box-number">Giriş Başarılı</span>
+                <span class="progress-description">
+                  Yölendiriliyor...
+                </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+';
+                    $_SESSION["kullanici"]=true;
+                    $_SESSION["kullanici"]=$data["id"];
+                    header("Refresh: 2; url=main");
+
+                }
+                else
+                {
+                    echo '           <div class="col-12">
+            <div class="card card-danger">
+              <div class="card-header">
+                <h3 class="card-title">Hatalı Giriş</h3>
+              </div>
+              <div class="card-body">
+                Kullanıcı Adı veya Şifresi Hatalı
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+';
+                }
+            }
+            ?>
+
+
 
             <form method="post">
                 <div class="input-group mb-3">
@@ -76,50 +130,4 @@ include '../veri.php';
 </body>
 
 </html>
-<?php
-if(isset($_POST["adi"])){
-    $kullanici_adi=$_POST["adi"];
-    $kullanici_sifre=$_POST["sifre"];
-    $sql=mysqli_query($db,"select * from kullanici where kullanici_ad='$kullanici_adi' and kullanici_sifre='$kullanici_sifre'");
-    $data=mysqli_fetch_array($sql);
-    if (mysqli_num_rows($sql)==1){
 
-        echo '                       <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
-
-              <div class="info-box-content">
-             
-                <span class="info-box-number">Giriş Başarılı</span>
-                <span class="progress-description">
-                  Yölendiriliyor...
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-';
-        $_SESSION["kullanici"]=true;
-        $_SESSION["kullanici"]=$data["id"];
-        header("Refresh: 2; url=main");
-
-    }
-    else
-        {
-            echo '           <div class="col-md-3">
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Hatalı Giriş</h3>
-              </div>
-              <div class="card-body">
-                Kullanıcı Adı veya Şifresi Hatalı
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-';
-    }
-}
-?>

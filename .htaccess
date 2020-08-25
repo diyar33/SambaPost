@@ -1,0 +1,7 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteRule ^index$ index.php
+RewriteRule ^exit$ exit.php
+RewriteRule ^([0-9a-zA-Z-_]+)(/?)$ main.php?gelenUrl=$1 [L,QSA]
+RewriteRule ^edit-([a-zA-Z0-9]+)(\.html)$ main.php?gelenUrl=edit&id=$1 [L,QSA]
+

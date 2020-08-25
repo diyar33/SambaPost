@@ -1,7 +1,7 @@
 </div>
 <footer>
     <div class="pull-right">
-        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+        <strong>Copyright &copy; 2020 <a href="#">Diyar Aydın</a>.</strong>
     </div>
     <div class="clearfix"></div>
 </footer>
