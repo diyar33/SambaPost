@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 include '../veri.php';
-if (  $_SESSION["kullanici"]==true){
+if (isset($_SESSION["kullanici"])){
     header('Location:main');
 }
 ?>

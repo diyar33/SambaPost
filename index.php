@@ -115,7 +115,7 @@ if (isset($_SESSION["uye"])){
 
                 <div>
                   <h1><i class="fa fa-paw"></i> SambaPost</h1>
-                  <p>©2020 Diyar Aydın</p>
+                  <p>Copyright &copy; 2020 <a href="#">Diyar Aydın</a></p>
                 </div>
               </div>
           </section>

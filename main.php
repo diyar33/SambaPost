@@ -11,7 +11,7 @@ $data=mysqli_fetch_array(mysqli_query($db,"select * from firmalar where id='$uye
 
 
 include 'header.php';
-
+echo $data["ip"];
 include 'footer.php';
 
 ?>
